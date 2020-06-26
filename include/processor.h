@@ -5,7 +5,7 @@
 
 class Processor {
  public:
-  float Utilization();  // TODO: See src/processor.cpp
+  double Utilization();  // TODO: See src/processor.cpp
   void user(const unsigned long int);
   void nice(const unsigned long int);
   void system(const unsigned long int);

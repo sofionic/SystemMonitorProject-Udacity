@@ -2,19 +2,14 @@
 #include "linux_parser.h"
 #include "unistd.h"
 
-// TODO: Return the aggregate CPU utilization
-float Processor::Utilization() { 
-    /*float utilization{0.0};
-    long activetime=LinuxParser::ActiveJiffies();
-    long uptime=LinuxParser::UpTime();
-    utilization=(float)(activetime/sysconf(_SC_CLK_TCK)/uptime);
+// Return the aggregate CPU utilization
+double Processor::Utilization() { 
 
-    return utilization; */
-  float smallJiffie;
+  double smallJiffie;
   long activeJiffies = LinuxParser::ActiveJiffies();
   long totalJiffies = LinuxParser::Jiffies();
 
-  smallJiffie = float(activeJiffies - anteriorActive) / float(totalJiffies - anteriorTotal);
+  smallJiffie = double(activeJiffies - anteriorActive) / double(totalJiffies - anteriorTotal);
   anteriorActive = activeJiffies;
   anteriorTotal = totalJiffies;
 
